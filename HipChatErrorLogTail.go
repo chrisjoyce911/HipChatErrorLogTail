@@ -47,6 +47,11 @@ func main() {
 		os.Exit(3)
 	}
 
+	myname, err := os.Hostname()
+	if err != nil {
+		panic(err)
+	}
+	
 	messages := make(chan string)
 	var summary []LogLine
 
@@ -106,7 +111,7 @@ func main() {
 		if s > reporttime {
 			if len(summary) > 0 {
 				s := []string{}
-				s = append(s, fmt.Sprintf("Error log update %v: ", t1))
+				s = append(s, fmt.Sprintf("$s : Error log update %v: ",myname , t1))
 				for _, item := range summary {
 					s = append(s, fmt.Sprintf("%d %s %s %s %s %s ", item.Count, item.Level, item.File, item.Request, item.IP, item.Message))
 				}
