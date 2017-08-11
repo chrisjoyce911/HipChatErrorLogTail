@@ -91,10 +91,11 @@ func main() {
 				thisline.File = result[5]
 				thisline.Request = result[6]
 				thisline.IP = result[7]
+				thisline.Message = M
+
 			} else {
 				thisline.Message += msg
 			}
-			thisline.Message = M
 			// log.Println(thisline.Message)
 
 			needtoadd := true
