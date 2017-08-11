@@ -40,18 +40,18 @@ func main() {
 	var reporttime = *secondsPtr
 
 	if len(accesstoken) < 1 {
-		os.Exit(3)
+		log.Fatalln("No HipChat Channel Token")
 	}
 
 	if len(filetotail) < 1 {
-		os.Exit(3)
+		log.Fatalln("The log file you want read is not specified")
 	}
 
 	myname, err := os.Hostname()
 	if err != nil {
 		panic(err)
 	}
-	
+
 	messages := make(chan string)
 	var summary []LogLine
 
@@ -111,7 +111,7 @@ func main() {
 		if s > reporttime {
 			if len(summary) > 0 {
 				s := []string{}
-				s = append(s, fmt.Sprintf("$s : Error log update %v: ",myname , t1))
+				s = append(s, fmt.Sprintf("$s : Error log update %v: ", myname, t1))
 				for _, item := range summary {
 					s = append(s, fmt.Sprintf("%d %s %s %s %s %s ", item.Count, item.Level, item.File, item.Request, item.IP, item.Message))
 				}
