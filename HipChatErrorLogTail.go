@@ -29,7 +29,7 @@ func main() {
 
 	wordPtr := flag.String("t", "", "HipChat Channel token")
 	filePtr := flag.String("f", "", "Logfile to tail")
-	roomPtr := flag.String("r", "Error Logs", "HipChat room")
+	roomPtr := flag.String("r", "Integration Testing", "HipChat room")
 	secondsPtr := flag.Float64("s", 30, "Seconds (int)")
 
 	flag.Parse()
@@ -85,12 +85,17 @@ func main() {
 				thisline.ID = len(summary) + 1
 			}
 
-			thisline.Count = 1
-			thisline.Level = result[4]
-			thisline.File = result[5]
-			thisline.Request = result[6]
-			thisline.IP = result[7]
+			if len(result) > 8 {
+				thisline.Count = 1
+				thisline.Level = result[4]
+				thisline.File = result[5]
+				thisline.Request = result[6]
+				thisline.IP = result[7]
+			} else {
+				thisline.Message += msg
+			}
 			thisline.Message = M
+			// log.Println(thisline.Message)
 
 			needtoadd := true
 			for i, item := range summary {
