@@ -3,13 +3,14 @@ package main
 import (
 	"flag"
 	"fmt"
+	"html"
 	"log"
 	"os"
 	"strings"
 	"time"
 
-	"github.com/andybons/hipchat"
 	"github.com/hpcloud/tail"
+	"github.com/tbruyelle/hipchat-go/hipchat"
 )
 
 var t0 = time.Now()
@@ -92,7 +93,6 @@ func main() {
 				thisline.Request = result[6]
 				thisline.IP = result[7]
 				thisline.Message = M
-
 			} else {
 				thisline.Message += msg
 			}
@@ -115,32 +115,37 @@ func main() {
 		d := t1.Sub(t0)
 		s := d.Seconds()
 		if s > reporttime {
+			log.Println("Report")
 			if len(summary) > 0 {
+				log.Println("Sumary")
 				s := []string{}
-				s = append(s, fmt.Sprintf("$s : Error log update %v: ", myname, t1))
 				for _, item := range summary {
-					s = append(s, fmt.Sprintf("%d %s %s %s %s %s ", item.Count, item.Level, item.File, item.Request, item.IP, item.Message))
+					log.Println(item.Message)
+					s = append(s, fmt.Sprintf("<strong>%d</strong> <i>%s</i> %s %s %s %s ", item.Count, item.Level, item.File, item.Request, item.IP, html.EscapeString(item.Message)))
 				}
 				summary = summary[:0]
 				// fmt.Println(strings.Join(s, "\n"))
-				var m = strings.Join(s, "\n")
+				var m = strings.Join(s, "<br>")
 				go func() {
-					c := hipchat.Client{AuthToken: accesstoken}
+					c := hipchat.NewClient(accesstoken)
 
-					req := hipchat.MessageRequest{
-						RoomId:        hipchatroom,
-						From:          "Error Log Tail",
+					//see:
+					//https://www.hipchat.com/docs/apiv2/method/send_room_notification
+					req := &hipchat.NotificationRequest{
+						From:          fmt.Sprintf("Host(%s)", myname),
 						Message:       m,
-						Color:         hipchat.ColorRed,
-						MessageFormat: hipchat.FormatText,
+						Color:         "red",
+						MessageFormat: "html",
 						Notify:        true,
 					}
-					if err := c.PostMessage(req); err != nil {
+					if _, err := c.Room.Notification(hipchatroom, req); err != nil {
 						log.Printf("Expected no error, but got %q", err)
 					}
 
 					return
 				}()
+			} else {
+				log.Println("No summary")
 			}
 			t0 = time.Now()
 		}
