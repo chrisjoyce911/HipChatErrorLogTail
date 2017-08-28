@@ -1,0 +1,100 @@
+11/Aug/2017:17:02:58 +1000 dev JL[76160]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /deposit/card] I[121.73.22.192] C[240007985] SLOW PAGE DB ACCESS ({"query_count": 73, "query_count_threshold": 50, "query_time": "0.521", "query_time_threshold": "1.00s", "request_summary": "121.73.22.192 => SSL GET https://www.au-b-mythical-jl2.lan/deposit/card"})
+11/Aug/2017:17:02:59 +1000 dev JL[74226]: L[WARN] F[j\l\a\m\ApplicationDevice] R[POST /v2/update_device] I[49.183.91.41] Calling save but object jumbo\lotteries\api\model\ApplicationDevice with id '2612' has no unsaved changes
+11/Aug/2017:17:02:59 +1000 dev JL[74226]: L[WARN] F[j\l\a\m\ApplicationCustomerSession] R[POST /v2/update_device] I[49.183.91.41] Calling save but object jumbo\lotteries\api\model\ApplicationCustomerSession has no unsaved changes
+11/Aug/2017:17:03:04 +1000 dev JL[74207]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /play/information/saturday_lotto/reduced_system] I[220.240.79.23] C[] SLOW PAGE DB ACCESS ({"query_count": 66, "query_count_threshold": 50, "query_time": "0.417", "query_time_threshold": "1.00s", "request_summary": "220.240.79.23 => SSL GET https://www.au-b-mythical-jl2.lan/play/information/saturday_lotto/reduced_system?lazy"})
+11/Aug/2017:17:03:04 +1000 dev JL[74226]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /play/information/saturday_lotto/super_combo] I[220.240.79.23] C[] SLOW PAGE DB ACCESS ({"query_count": 102, "query_count_threshold": 50, "query_time": "0.178", "query_time_threshold": "1.00s", "request_summary": "220.240.79.23 => SSL GET https://www.au-b-mythical-jl2.lan/play/information/saturday_lotto/super_combo?lazy"})
+11/Aug/2017:17:03:05 +1000 dev JL[73878]: L[WARN] F[j\a\e\p\PayPalNotification] R[POST /secure/paypal] I[173.0.81.1] C[] PayPal IPN returned an invalid Jumbo ID. It returned null and needs to be JL encoded ID \n [
+	'mc_gross' => '15.65',
+	'invoice' => 'XXX_XXXX_XXXXX_XXXX',
+	'protection_eligibility' => 'Ineligible',
+	'payer_id' => 'AAAAAAAAAA',
+	'tax' => '0.00',
+	'payment_date' => '00:03:01 Aug 11, 2017 PDT',
+	'payment_status' => 'Completed',
+	'charset' => 'windows-1252',
+	'first_name' => 'Bill',
+	'mc_fee' => '0.35',
+	'notify_version' => '3.8',
+	'custom' => 'jumbolotto',
+	'payer_status' => 'verified',
+	'business' => 'bla@test.com',
+	'quantity' => '1',
+	'verify_sign' => 'ALKJLKJ:LKJ.CdqE8X',
+	'payer_email' => 'bla@test.com',
+	'txn_id' => '',
+	'payment_type' => 'instant',
+	'last_name' => 'Ninevski',
+	'receiver_email' => 'test@example.com',
+	'payment_fee' => '',
+	'shipping_discount' => '0.00',
+	'insurance_amount' => '0.00',
+	'receiver_id' => 'AAAAAA',
+	'txn_type' => 'express_checkout',
+	'item_name' => '',
+	'discount' => '0.00',
+	'mc_currency' => 'AUD',
+	'item_number' => '',
+	'residence_country' => 'AU',
+	'handling_amount' => '0.00',
+	'shipping_method' => 'Default',
+	'transaction_subject' => '',
+	'payment_gross' => '',
+	'shipping' => '0.00',
+	'ipn_track_id' => 'aaaaa',
+]
+11/Aug/2017:17:03:05 +1000 dev JL[73878]: L[WARN] F[j\l\p\c\PaymentServiceListener] R[POST /secure/paypal] I[173.0.81.1] C[] Paypal IPN: Validation failed. [
+	'mc_gross' => '15.65',
+	'invoice' => 'XXXX-XXXX-XXXX-XXXX',
+	'protection_eligibility' => 'Ineligible',
+	'payer_id' => 'AAAAA',
+	'tax' => '0.00',
+	'payment_date' => '00:03:01 Aug 11, 2017 PDT',
+	'payment_status' => 'Completed',
+	'charset' => 'windows-1252',
+	'first_name' => 'BOB',
+	'mc_fee' => '0.35',
+	'notify_version' => '3.8',
+	'custom' => 'jumbolotto',
+	'payer_status' => 'verified',
+	'business' => 'test@example.com',
+	'quantity' => '1',
+	'verify_sign' => 'AAAA.CdqE8X',
+	'payer_email' => 'test@example.com',
+	'txn_id' => 'AAAA1111111',
+	'payment_type' => 'instant',
+	'last_name' => 'BOB',
+	'receiver_email' => 'test@example.com',
+	'payment_fee' => '',
+	'shipping_discount' => '0.00',
+	'insurance_amount' => '0.00',
+	'receiver_id' => 'AAAAAAAAA',
+	'txn_type' => 'express_checkout',
+	'item_name' => '',
+	'discount' => '0.00',
+	'mc_currency' => 'AUD',
+	'item_number' => '',
+	'residence_country' => 'AU',
+	'handling_amount' => '0.00',
+	'shipping_method' => 'Default',
+	'transaction_subject' => '',
+	'payment_gross' => '',
+	'shipping' => '0.00',
+	'ipn_track_id' => 'aaaaaaaaaa111',
+]
+11/Aug/2017:17:03:09 +1000 dev JL[69266]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[POST /v2/cart/purchase] I[14.201.121.119] SLOW PAGE DB ACCESS ({"query_count": 80, "query_count_threshold": 50, "query_time": "0.299", "query_time_threshold": "1.00s", "request_summary": "14.201.121.119 => SSL NR NA POST https://api.ozlotteries.com/v2/cart/purchase"})
+11/Aug/2017:17:03:10 +1000 dev JL[74226]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /v2/customer] I[101.180.120.244] SLOW PAGE DB ACCESS ({"query_count": 45, "query_count_threshold": 50, "query_time": "3.689", "query_time_threshold": "1.00s", "request_summary": "101.180.120.244 => SSL NR GET https://api.ozlotteries.com/v2/customer"})
+11/Aug/2017:17:03:10 +1000 dev JL[74226]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /v2/customer] I[101.180.120.244] SLOW PAGE ({"elapsed": "3.783", "slow_page_threshold": "2.00", "request_summary": "101.180.120.244 => SSL NR GET https://api.ozlotteries.com/v2/customer"})
+11/Aug/2017:17:03:12 +1000 dev JL[68704]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /receipt/XXXX-XXXX-XXXX-XXXX] I[121.73.22.192] C[240007985] SLOW PAGE DB ACCESS ({"query_count": 69, "query_count_threshold": 50, "query_time": "0.091", "query_time_threshold": "1.00s", "request_summary": "121.73.22.192 => SSL GET https://www.au-b-mythical-jl2.lan/receipt/XXXX-XXXX-XXXX-XXXX"})
+11/Aug/2017:17:03:13 +1000 dev JL[73878]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /my-account/] I[49.195.153.155] C[220053662] SLOW PAGE DB ACCESS ({"query_count": 102, "query_count_threshold": 50, "query_time": "0.917", "query_time_threshold": "1.00s", "request_summary": "49.195.153.155 => SSL GET https://www.au-b-mythical-jl2.lan/my-account/"})
+11/Aug/2017:17:03:13 +1000 dev JL[61271]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /v2/customer] I[1.144.97.121] SLOW PAGE DB ACCESS ({"query_count": 25, "query_count_threshold": 50, "query_time": "1.064", "query_time_threshold": "1.00s", "request_summary": "1.144.97.121 => SSL NR GET https://api.ozlotteries.com/v2/customer"})
+11/Aug/2017:17:03:16 +1000 dev JL[76160]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /v2/customer] I[58.110.67.189] SLOW PAGE DB ACCESS ({"query_count": 37, "query_count_threshold": 50, "query_time": "3.312", "query_time_threshold": "1.00s", "request_summary": "58.110.67.189 => SSL NR GET https://api.ozlotteries.com/v2/customer"})
+11/Aug/2017:17:03:16 +1000 dev JL[76160]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /v2/customer] I[58.110.67.189] SLOW PAGE ({"elapsed": "3.394", "slow_page_threshold": "2.00", "request_summary": "58.110.67.189 => SSL NR GET https://api.ozlotteries.com/v2/customer"})
+11/Aug/2017:17:03:20 +1000 dev JL[74225]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /v2/orders] I[58.161.84.137] SLOW PAGE DB ACCESS ({"query_count": 264, "query_count_threshold": 50, "query_time": "0.996", "query_time_threshold": "1.00s", "request_summary": "58.161.84.137 => SSL NR NA GET https://api.ozlotteries.com/v2/orders?limit=20&offset=0&show_details=false&status=past_products"})
+11/Aug/2017:17:03:22 +1000 dev JL[68696]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /v2/customer] I[101.190.106.192] SLOW PAGE DB ACCESS ({"query_count": 33, "query_count_threshold": 50, "query_time": "5.554", "query_time_threshold": "1.00s", "request_summary": "101.190.106.192 => SSL NR GET https://api.ozlotteries.com/v2/customer"})
+11/Aug/2017:17:03:22 +1000 dev JL[68696]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /v2/customer] I[101.190.106.192] SLOW PAGE ({"elapsed": "5.682", "slow_page_threshold": "2.00", "request_summary": "101.190.106.192 => SSL NR GET https://api.ozlotteries.com/v2/customer"})
+11/Aug/2017:17:03:25 +1000 dev JL[69266]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /v2/customer] I[14.137.95.194] SLOW PAGE DB ACCESS ({"query_count": 27, "query_count_threshold": 50, "query_time": "1.143", "query_time_threshold": "1.00s", "request_summary": "14.137.95.194 => SSL NR GET https://api.ozlotteries.com/v2/customer"})
+11/Aug/2017:17:03:25 +1000 dev JL[68696]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /saturday-lotto] I[128.250.0.205] C[] SLOW PAGE DB ACCESS ({"query_count": 129, "query_count_threshold": 50, "query_time": "0.325", "query_time_threshold": "1.00s", "request_summary": "128.250.0.205 => SSL GET https://www.au-b-mythical-jl2.lan/saturday-lotto"})
+11/Aug/2017:17:03:26 +1000 dev JL[74207]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /v2/customer] I[155.143.9.243] SLOW PAGE DB ACCESS ({"query_count": 30, "query_count_threshold": 50, "query_time": "3.255", "query_time_threshold": "1.00s", "request_summary": "155.143.9.243 => SSL NR GET https://api.ozlotteries.com/v2/customer"})
+11/Aug/2017:17:03:26 +1000 dev JL[74207]: L[WARN] F[j\l\c\i\RequestLoggingInterceptor] R[GET /v2/customer] I[155.143.9.243] SLOW PAGE ({"elapsed": "3.341", "slow_page_threshold": "2.00", "request_summary": "155.143.9.243 => SSL NR GET https://api.ozlotteries.com/v2/customer"})
+11/Aug/2017:17:03:26 +1000 dev JL[61271]: L[WARN] F[j\l\a\m\ApplicationDevice] R[POST /v2/update_device] I[120.18.52.4] Calling save but object jumbo\lotteries\api\model\ApplicationDevice with id '85854' has no unsaved changes
+11/Aug/2017:17:03:26 +1000 dev JL[61271]: L[WARN] F[j\l\a\m\ApplicationCustomerSession] R[POST /v2/update_device] I[120.18.52.4] Calling save but object jumbo\lotteries\api\model\ApplicationCustomerSession has no unsaved changes
